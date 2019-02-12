@@ -7,7 +7,7 @@ def draw(frame):
     rect(*frame.page)
     
     font("Obviously Variable")
-    t1 = "BONJOUR\nLE MONDE"
+    t1 = "HALLO\nWERELD"
     t2 = "kumusta\nmundo!"
     axes = listFontVariations()
     wdth = axes.get("wdth")
