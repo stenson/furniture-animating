@@ -45,6 +45,7 @@ def draw(frame):
         wght=scale_to_axis(wght, y),
         wdth=scale_to_axis(wdth, 1-y))
     fill(1)
+    fontSize(200-40*(1-y))
     text(t2, (500, 550), align="center")
 
 animation = Animation(draw, 60, 30, (1000, 1000), fmt="pdf")

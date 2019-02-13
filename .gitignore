@@ -2,3 +2,5 @@ frames/
 Adobe After Effects Auto-Save
 .DS_Store
 __pycache__
+.vscode
+ae_AME
