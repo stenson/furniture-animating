@@ -48,5 +48,5 @@ def draw(frame):
     fontSize(200-40*(1-y))
     text(t2, (500, 550), align="center")
 
-animation = Animation(draw, 60, 30, (1000, 1000), fmt="pdf")
+animation = Animation(draw, 60, 30, (1000, 1000))
 animation.storyboard(frames=(0, 30, 59))

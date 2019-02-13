@@ -32,5 +32,5 @@ def draw(frame):
     fill(1)
     text(t2, (500, 550), align="center")
 
-animation = Animation(draw, 60, 30, (1000, 1000), fmt="pdf")
+animation = Animation(draw, 60, 30, (1000, 1000))
 animation.storyboard(frames=(0, 30, 59))
