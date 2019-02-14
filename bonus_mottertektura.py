@@ -1,3 +1,4 @@
+# RUN: python -c 'import bonus; bonus.animation.render()'
 from furniture.animation import Animation
 from furniture.vfont import scale_to_axis
 from drawBot import *
