@@ -4,7 +4,7 @@ from drawBot import *
 
 def draw(frame, zoom=False):
     def draw_text(t1, t2):
-        font("MotterPixtura-Master_0")
+        font("MotterPixturaVariable_v0001.ttf")
         axes = listFontVariations()
         wdth = axes.get("wdth")
         wght = axes.get("wght")
