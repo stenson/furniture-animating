@@ -1,4 +1,3 @@
-# RUN: python -c 'import step2; step2.animation.render()'
 from furniture.animation import Animation
 from drawBot import *
 

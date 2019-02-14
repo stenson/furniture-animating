@@ -1,19 +1,22 @@
-# RUN: python -c 'import bonus; bonus.animation.render()'
 from furniture.animation import Animation
 from furniture.vfont import scale_to_axis
 from drawBot import *
 
 def draw(frame, zoom=False):
-    def draw_text(t1, t2):
-        font("MotterPixturaVariable_v0001.ttf")
-        axes = listFontVariations()
-        wdth = axes.get("wdth")
-        wght = axes.get("wght")
+    font("MotterPixturaVariable_v0001.ttf")
+    axes = listFontVariations()
+    wdth = axes.get("wdth")
+    wght = axes.get("wght")
     
+    # function-in-a-function
+    # (as mentioned in the tutorial)
+    def draw_text(t1, t2):
         fontSize(200)
         lineHeight(200)
         y = pow(2 * frame.doneness - 1, 2)
     
+        # building up a dictionary of
+        # open-type features
         fea = dict()
         if frame.i > 15:
             fea["ss03"] = True
@@ -22,6 +25,8 @@ def draw(frame, zoom=False):
             fea["ss02"] = True
         if frame.i > 41:
             fea["ss01"] = True
+        # set the features with the
+        # built-up dictionary
         openTypeFeatures(**fea)
     
         fontVariations(
