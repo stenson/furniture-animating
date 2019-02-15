@@ -2,33 +2,32 @@ from furniture.animation import Animation
 from furniture.vfont import scale_to_axis
 from drawBot import *
 
-def draw(frame, zoom=False):
+def draw(frame):
     font("MotterPixturaVariable_v0001.ttf")
     axes = listFontVariations()
     wdth = axes.get("wdth")
     wght = axes.get("wght")
+    fontSize(200)
+    lineHeight(200)
+    y = pow(2 * frame.doneness - 1, 2)
+    
+    # building up a dictionary of
+    # open-type features
+    fea = dict()
+    if frame.i > 15:
+        fea["ss03"] = True
+    if frame.i > 30:
+        fea["dlig"] = True
+        fea["ss02"] = True
+    if frame.i > 41:
+        fea["ss01"] = True
+    # set the features with the
+    # built-up dictionary
+    openTypeFeatures(**fea)
     
     # function-in-a-function
     # (as mentioned in the tutorial)
     def draw_text(t1, t2):
-        fontSize(200)
-        lineHeight(200)
-        y = pow(2 * frame.doneness - 1, 2)
-    
-        # building up a dictionary of
-        # open-type features
-        fea = dict()
-        if frame.i > 15:
-            fea["ss03"] = True
-        if frame.i > 30:
-            fea["dlig"] = True
-            fea["ss02"] = True
-        if frame.i > 41:
-            fea["ss01"] = True
-        # set the features with the
-        # built-up dictionary
-        openTypeFeatures(**fea)
-    
         fontVariations(
             wght=scale_to_axis(wght, 1-y),
             wdth=scale_to_axis(wdth, y))
@@ -44,7 +43,6 @@ def draw(frame, zoom=False):
     fill(0)
     rect(*frame.page)
     with savedState():
-        translate(0, 0)
         scale(6, center=frame.page.center())
         draw_text(
             "FURNITURE.\nANIMATION",
